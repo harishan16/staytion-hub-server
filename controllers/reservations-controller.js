@@ -3,8 +3,6 @@ import configuration from "../knexfile.js";
 // import { matchedData } from "express-validator";
 const knex = initKnex(configuration);
 
-//index get
-
 const index = async (req, res) => {
     try {
         const reservationsList = await knex("reservations");
@@ -36,4 +34,4 @@ const viewDetail = async (req, res) => {
     }
 }
 
-export { index };
+export { index, viewDetail };
