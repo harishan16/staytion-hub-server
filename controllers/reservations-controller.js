@@ -6,6 +6,7 @@ const knex = initKnex(configuration);
 const index = async (req, res) => {
     try {
         const reservationsList = await knex("reservations");
+        console.log(reservationsList);
 
         if (reservationsList.length === 0) {
             return res.status(404).json({

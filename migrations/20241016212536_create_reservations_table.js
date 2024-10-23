@@ -19,6 +19,15 @@ export function up(knex) {
             .inTable('rooms')
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
+        table.integer('room_number').notNullable();
+        // table
+        //     .string('guest_name')
+        //     .unsigned()
+        //     .references('id')
+        //     .inTable('guests')
+        //     .onUpdate('CASCADE')
+        //     .onDelete('CASCADE');
+        table.string('guest_name').notNullable();
         table.integer('no_of_guests').notNullable();
         table.timestamp('check_in').notNullable();
         table.timestamp('check_out').notNullable();

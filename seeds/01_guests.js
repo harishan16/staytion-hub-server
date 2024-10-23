@@ -3,12 +3,16 @@
  * @returns { Promise<void> } 
  */
 export async function seed(knex) {
+  const exists = await knex.schema.hasTable('guests');
+  
+  if(exists) {
+    await knex('guests').del()
+  }
   // Deletes ALL existing entries
-  await knex('guests').del()
   await knex('guests').insert([
     {
       id: 1,
-      name: 'Eva Thomas',
+      guest_name: 'Eva Thomas',
       contact_number: '+1(647)-835-8531',
       contact_email: 'eva@gmail.com',
       address: '34, Erskie Ave',
@@ -17,7 +21,7 @@ export async function seed(knex) {
     },
     {
       id: 2,
-      name: 'Sofia Jane',
+      guest_name: 'Sofia Jane',
       contact_number: '+1(647)-845-8531',
       contact_email: 'sofia@yahoo.com',
       address: '4, Dufferin Ave',
@@ -26,7 +30,7 @@ export async function seed(knex) {
     },
     {
       id: 3,
-      name: 'Lucas Carter',
+      guest_name: 'Lucas Carter',
       contact_number: '+1(947)-822-4166',
       contact_email: 'lcarter@gmail.com',
       address: '138, Redpath Street',
@@ -35,7 +39,7 @@ export async function seed(knex) {
     },
     {
       id: 4,
-      name: 'Mia Jonas',
+      guest_name: 'Mia Jonas',
       contact_number: '+1(647)-221-4162',
       contact_email: 'miaj@gmail.com',
       address: '',
@@ -43,8 +47,8 @@ export async function seed(knex) {
       country: '',
     },
     {
-      id: 3,
-      name: 'Sana Benette',
+      id: 5,
+      guest_name: 'Sana Benette',
       contact_number: '+1(937)-924-7529',
       contact_email: 'sana@gmail.com',
       address: '',

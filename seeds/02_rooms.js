@@ -4,7 +4,12 @@
  */
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('rooms').del()
+  const exists = await knex.schema.hasTable('rooms');
+
+  if(exists) {
+    await knex('rooms').del()
+  }
+  
   await knex('rooms').insert([
     {
       id: 1,
