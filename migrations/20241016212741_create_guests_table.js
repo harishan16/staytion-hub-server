@@ -5,7 +5,7 @@
 export function up(knex) {
     return knex.schema.createTable('guests', (table) => {
         table.increments('id').primary();
-        table.string('name').notNullable();
+        table.string('guest_name').notNullable();
         table.string('contact_number').notNullable();
         table.string('contact_email').notNullable();
         table.string('address').notNullable();
