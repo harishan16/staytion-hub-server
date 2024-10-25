@@ -11,7 +11,6 @@ export function up(knex) {
         table.string('address').notNullable();
         table.string('city').notNullable();
         table.string('country').notNullable();
-        // table.string('proof_of_document').notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now());
         table.timestamp('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
     });

@@ -52,6 +52,69 @@ export async function seed(knex) {
       room_type: 'Suite',
       capacity: 5,
       status: 'Occupied'
+    },
+    {
+      id: 7,
+      room_number: 103,
+      room_type: 'Deluxe Room',
+      capacity: 2,
+      status: 'Available'
+    },
+    {
+      id: 8,
+      room_number: 104,
+      room_type: 'Deluxe Room',
+      capacity: 2,
+      status: 'Available'
+    },
+    {
+      id: 9,
+      room_number: 105,
+      room_type: 'Deluxe Room',
+      capacity: 2,
+      status: 'Available'
+    },
+    {
+      id: 10,
+      room_number: 203,
+      room_type: 'Family Room',
+      capacity: 4,
+      status: 'Available'
+    },
+    {
+      id: 11,
+      room_number: 204,
+      room_type: 'Family Room',
+      capacity: 4,
+      status: 'Available'
+    },
+    {
+      id: 12,
+      room_number: 205,
+      room_type: 'Family Room',
+      capacity: 4,
+      status: 'Available'
+    },
+    {
+      id: 13,
+      room_number: 303,
+      room_type: 'Suite',
+      capacity: 5,
+      status: 'Available'
+    },
+    {
+      id: 14,
+      room_number: 304,
+      room_type: 'Suite',
+      capacity: 5,
+      status: 'Available'
+    },
+    {
+      id: 15,
+      room_number: 305,
+      room_type: 'Suite',
+      capacity: 5,
+      status: 'Available'
     }
   ]);
 }

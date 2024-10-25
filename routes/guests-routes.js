@@ -6,4 +6,7 @@ const router = express.Router();
 router.route("/")
         .get(guestsController.index)
 
+router.route("/getGuestNames")
+	.get(guestsController.getGuestNames);
+
 export default router;
