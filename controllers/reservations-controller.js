@@ -1,6 +1,6 @@
 import initKnex from "knex";
 import configuration from "../knexfile.js";
-// import { matchedData } from "express-validator";
+import { matchedData } from "express-validator";
 const knex = initKnex(configuration);
 
 const index = async (req, res) => {
@@ -25,7 +25,7 @@ const index = async (req, res) => {
 
 const viewDetail = async (req, res) => {
     try {
-        console.log(req);
+        console.log(req.params);
 
     } catch (error) {
         res.status(500).json ({
@@ -35,4 +35,25 @@ const viewDetail = async (req, res) => {
     }
 }
 
-export { index, viewDetail };
+// POST
+const add = async (req, res, next) => {
+    try {
+        console.log(req);
+        const newReservation = matchedData(req);
+
+        const insertedID =
+            await knex("reservations")
+                .insert(newReservation);
+
+        res.status(201).send({
+            id: insertedID[0],
+            ...newReservation
+        });
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
+	return next();
+}
+
+export { index, viewDetail, add };
