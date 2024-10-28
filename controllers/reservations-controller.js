@@ -23,9 +23,24 @@ const index = async (req, res) => {
     }
 }
 
-const viewDetail = async (req, res) => {
+//findOne = get one  //http://localhost:5050/api/reservations/1
+
+const getReservationById = async (req, res) => {
     try {
         console.log(req.params);
+        const { id } = req.params;
+
+        const details = await knex("reservations").where({ id }).first();
+        console.log(details);
+
+        if (!details) {
+            return res.status(404).json({
+              message: "Reservation not found",
+            });
+          }
+  
+          const reservationDetails = details;
+          res.json(reservationDetails);
 
     } catch (error) {
         res.status(500).json ({
@@ -34,6 +49,7 @@ const viewDetail = async (req, res) => {
 
     }
 }
+
 
 // POST
 const add = async (req, res, next) => {
@@ -56,4 +72,4 @@ const add = async (req, res, next) => {
 	return next();
 }
 
-export { index, viewDetail, add };
+export { index, getReservationById, add };

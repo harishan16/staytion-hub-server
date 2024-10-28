@@ -6,4 +6,8 @@ const router = express.Router();
 router.route("/")
         .get(roomsController.index)
 
+router.route("/:id")
+        .get(roomsController.getRoomById)
+        .patch(roomsController.update);
+
 export default router;

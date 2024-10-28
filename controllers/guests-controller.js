@@ -23,16 +23,16 @@ const index = async (req, res) => {
     }
 }
 
-const getGuestNames = async (req, res) => { 
-    try {
-        const guestNames = await knex('guests')
-            .select('guest_name');
+// const getGuestNames = async (req, res) => { 
+//     try {
+//         const guestNames = await knex('guests')
+//             .select('guest_name');
         
-        return res.status(200).json(guestNames);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Error fetching guest names" });
-    }
-  }
+//         return res.status(200).json(guestNames);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: "Error fetching guest names" });
+//     }
+//   }
 
-export { index, getGuestNames };
+export { index };
