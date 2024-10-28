@@ -8,6 +8,9 @@ router.route("/")
         .get(reservationsController.index)
         .post(...validateReservation, reservationsController.add);
 
+router.route("/:id")
+        .get(reservationsController.getReservationById);
+
 // router.route("/:id")
         // .get(reservationsController.findOne)
         // .put(...validateReservation, reservationsController.update)
