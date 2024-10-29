@@ -1,12 +1,10 @@
 import express from "express";
 import * as guestsController from "../controllers/guests-controller.js";
-// import { validateReservation } from "../middleware/validateReservation.js";
+import { validateGuest } from "../middleware/validateGuest.js";
 const router = express.Router();
 
 router.route("/")
         .get(guestsController.index)
-
-// router.route("/getGuestNames")
-// 	.get(guestsController.getGuestNames);
+        .post(...validateGuest, guestsController.add);
 
 export default router;
