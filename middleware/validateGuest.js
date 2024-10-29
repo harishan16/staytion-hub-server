@@ -1,6 +1,5 @@
 import { check, validationResult } from 'express-validator';
 
-
 export const validateGuest = [
     check('guest_name').notEmpty().withMessage('Guest name is required'),
     check('contact_number').matches(/^\+1\(\d{3}\)-\d{3}-\d{4}$/).withMessage('Invalid contact number format'),

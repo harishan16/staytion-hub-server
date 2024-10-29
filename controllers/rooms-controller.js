@@ -1,12 +1,10 @@
 import initKnex from "knex";
 import configuration from "../knexfile.js";
-// import { matchedData } from "express-validator";
 const knex = initKnex(configuration);
 
 const index = async (req, res) => {
     try {
         const rooms = await knex("rooms");
-        console.log(rooms);
 
         if (rooms.length === 0) {
             return res.status(404).json({
@@ -27,7 +25,6 @@ const getRoomById = async (req, res) => {
     const { id } = req.params;
     try {
         const details = await knex("rooms").where({ id }).first();
-        console.log(details);
 
         if (!details) {
             return res.status(404).json({

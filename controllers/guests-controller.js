@@ -43,16 +43,4 @@ const add = async (req, res, next) => {
 	return next();
 }
 
-// const getGuestNames = async (req, res) => { 
-//     try {
-//         const guestNames = await knex('guests')
-//             .select('guest_name');
-        
-//         return res.status(200).json(guestNames);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: "Error fetching guest names" });
-//     }
-//   }
-
 export { index, add };

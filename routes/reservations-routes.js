@@ -11,12 +11,4 @@ router.route("/")
 router.route("/:id")
         .get(reservationsController.getReservationById);
 
-// router.route("/:id")
-        // .get(reservationsController.findOne)
-        // .put(...validateReservation, reservationsController.update)
-        // .delete(reservationsController.remove);
-
-// router.route("/:id/inventories")
-//         .get(reservationsController.findInventories);
-
 export default router;
